@@ -8,6 +8,22 @@
   <script src="script.js" defer></script>
 </head>
 <body>
-  
+  <h1>Weather App</h1>
+
+  <form action="">
+    <input type="text" id="location" name="location" placeholder="Enter a location" required/>
+    <button type="submit">Check Weather</button>
+  </form>
+
+  <div class="weather-display">
+    <h3 class="address"></h3>
+    <h4 class="temp"></h4>
+    <div class="conditions"></div>
+    <div class="humidity"></div>
+    <div class="wind_speed"></div>
+    <div class="time"></div>
+  </div>
+
+  <div class="footer">Powered by <a href="https://www.visualcrossing.com/weather-api/">Visual Crossing API</a></div>
 </body>
 </html>
