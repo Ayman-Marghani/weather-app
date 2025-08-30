@@ -4,24 +4,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather App</title>
-  <!-- <link rel="stylesheet" href="styles.css"> -->
+  <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
 </head>
 <body>
   <h1>Weather App</h1>
 
   <form action="">
-    <input type="text" id="location" name="location" placeholder="Enter a location" required/>
+    <input type="text" id="location" name="location" placeholder="Enter city name..." required/>
     <button type="submit">Check Weather</button>
   </form>
 
   <div class="weather-display">
-    <h3 class="address"></h3>
-    <h4 class="temp"></h4>
-    <div class="conditions"></div>
-    <div class="humidity"></div>
-    <div class="wind_speed"></div>
+    <div class="address"></div>
     <div class="time"></div>
+    <div class="container">
+      <div class="icon"></div>
+      <div class="temp"></div>
+    </div>
+    <div class="container">
+      <div class="subcontainer">
+        <div>Conditions</div>
+        <div class="conditions">-</div>
+      </div>
+      <div class="subcontainer">
+        <div>Humidity</div>
+        <div class="humidity">-</div>
+      </div>
+      <div class="subcontainer">
+        <div>Feels Like</div>
+        <div class="feels_like">-</div>
+      </div>
+      <div class="subcontainer">
+        <div>Wind Speed</div>
+        <div class="wind_speed">-</div>
+      </div>
+    </div>
   </div>
 
   <div class="footer">Powered by <a href="https://www.visualcrossing.com/weather-api/">Visual Crossing API</a></div>
