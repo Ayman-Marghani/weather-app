@@ -51,7 +51,7 @@ async function processData(location) {
 // This function updates the DOM elements on the webpage with the weather data received from the API
 // It formats and displays the weather information in a user-friendly way (capitalizes address, formats time to 12-hour format, rounds numbers, etc.)
 function displayWeather(weatherData) {
-  iconElem.setAttribute("src", `/icons/${weatherData.icon}.png`);
+  iconElem.setAttribute("src", `icons/${weatherData.icon}.png`);
   iconElem.setAttribute("alt", `${weatherData.conditions} icon`);
   // Capitalize the address
   const capitalizedAddress = weatherData.address.charAt(0).toUpperCase() + weatherData.address.slice(1);
