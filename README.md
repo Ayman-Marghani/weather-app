@@ -4,7 +4,7 @@
 A simple and responsive weather dashboard built with **HTML, CSS, and JavaScript** that fetches real-time weather data using the [Visual Crossing Weather API](https://www.visualcrossing.com/weather-api/).  
 It displays current temperature, conditions, humidity, feels-like temperature, wind speed, and updates in a clean, user-friendly interface.  
 
-🔗 **[Live Demo]()**  
+🔗 **[Live Demo](https://ayman-marghani.github.io/weather-app/)**  
 
 ## ✨ Features
 - Search by city name  
@@ -59,8 +59,6 @@ weather-app/
 3. Enter a city name and hit search to view the weather details.
 
 ⚠️ Note: You will need a Visual Crossing API key to replace in script.js.
-
-## 📸 Screenshots
 
 
 ## Credits
