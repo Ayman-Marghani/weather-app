@@ -16,9 +16,12 @@ async function getWeatherData(location) {
   try {
     const response = await fetch(url);
     // if response is ok convert data to json
-    if (response.status == 200) {
+    if (response.ok) {
       const weatherData = await response.json();
       return weatherData;
+    }
+    else {
+      return null;
     }
   } catch (error) {
     console.error(error.message);
@@ -51,8 +54,8 @@ function displayWeather(weatherData) {
   iconElem.setAttribute("src", `/icons/${weatherData.icon}.png`);
   iconElem.setAttribute("alt", `${weatherData.conditions} icon`);
   // Capitalize the address
-  const capitalizedAddr = weatherData.address.charAt(0).toUpperCase() + weatherData.address.slice(1);
-  addressElem.textContent = capitalizedAddr;
+  const capitalizedAddress = weatherData.address.charAt(0).toUpperCase() + weatherData.address.slice(1);
+  addressElem.textContent = capitalizedAddress;
   // Convert time from "hh:mm:ss" format to "hh:mm AM or PM" format
   const timeString = weatherData.datetime;
   const [hours, minutes] = timeString.split(':');
