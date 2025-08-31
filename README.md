@@ -34,6 +34,7 @@ It displays current temperature, conditions, humidity, feels-like temperature, w
 - **HTML5**  
 - **CSS3** (responsive design, custom styles)  
 - **JavaScript (ES6+)** (fetch API, async/await, DOM manipulation)  
+- **npm** (project setup and deployment)  
 - **Visual Crossing API** (weather data)  
 - **Flaticon** (weather icons)  
 
@@ -42,10 +43,17 @@ It displays current temperature, conditions, humidity, feels-like temperature, w
 ## 📂 Project Structure
 ```bash
 weather-app/
-├── index.html # Main HTML file
-├── styles.css # CSS styles
-├── script.js # JavaScript functionality
-└── icons/ # Weather icons (from Flaticon)
+├── src/                  # Source files
+│   ├── index.html        # Main HTML file
+│   ├── styles.css        # CSS styles
+│   ├── script.js         # JavaScript functionality
+│   └── icons/            # Weather icons (from Flaticon)
+├── package.json          # npm configuration & scripts
+├── package-lock.json     # npm lock file
+├── README.md             # Project documentation
+├── .gitignore            # Ignored files/folders (node_modules, dist, etc.)
+├── dist/                 # Production build (auto-generated)
+└── node_modules/         # Dependencies (auto-generated)
 ```
 
 ## ⚙️ Setup and Usage
@@ -53,6 +61,7 @@ weather-app/
    ```bash
    git clone https://github.com/ayman-marghani/weather-app.git
    cd weather-app
+   cd src
    ```
 2. Open index.html in your browser.
 
