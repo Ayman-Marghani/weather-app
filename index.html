@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
 </head>
@@ -12,32 +13,34 @@
 
   <form action="">
     <input type="text" id="location" name="location" placeholder="Enter city name..." required/>
-    <button type="submit">Check Weather</button>
+    <button type="submit">🔍</button>
   </form>
 
   <div class="weather-display">
     <div class="address"></div>
     <div class="time"></div>
-    <div class="container">
-      <div class="icon"></div>
-      <div class="temp"></div>
-    </div>
-    <div class="container">
-      <div class="subcontainer">
-        <div>Conditions</div>
-        <div class="conditions">-</div>
+    <div class="display-container">
+      <div class="icon-temp-container">
+        <img class="icon" alt="Weather icon"></img>
+        <div class="temp"></div>
       </div>
-      <div class="subcontainer">
-        <div>Humidity</div>
-        <div class="humidity">-</div>
-      </div>
-      <div class="subcontainer">
-        <div>Feels Like</div>
-        <div class="feels_like">-</div>
-      </div>
-      <div class="subcontainer">
-        <div>Wind Speed</div>
-        <div class="wind_speed">-</div>
+      <div class="data-container">
+        <div class="subcontainer">
+          <div class="data-label">Conditions</div>
+          <div class="conditions data-value">-</div>
+        </div>
+        <div class="subcontainer">
+          <div class="data-label">Humidity</div>
+          <div class="humidity data-value">-</div>
+        </div>
+        <div class="subcontainer">
+          <div class="data-label">Feels Like</div>
+          <div class="feels_like data-value">-</div>
+        </div>
+        <div class="subcontainer">
+          <div class="data-label">Wind Speed</div>
+          <div class="wind_speed data-value">-</div>
+        </div>
       </div>
     </div>
   </div>

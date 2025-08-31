@@ -1,14 +1,3 @@
-const weatherIcons = {
-  "clear-day": "☀️",
-  "clear-night": "🌙",
-  "partly-cloudy-day": "🌤️",
-  "partly-cloudy-night": "🌥️",
-  "cloudy": "☁️",
-  "rain": "🌧️",
-  "snow": "❄️",
-  "fog": "🌫️",
-  "wind": "💨"
-};  
 const form = document.querySelector("form");
 const locationInput = document.querySelector("input");
 const addressElem = document.querySelector(".address");
@@ -40,7 +29,6 @@ async function processData(location) {
   if (!weatherData) {
     return null;
   }
-  // Extra data: icon, windspeed
   let currentWeather = {
     temp: weatherData.currentConditions.temp,
     feelslike: weatherData.currentConditions.feelslike,
@@ -51,12 +39,12 @@ async function processData(location) {
     datetime: weatherData.currentConditions.datetime,
     address: weatherData.resolvedAddress
   };
-  console.l
   return currentWeather;
 }
 
 function displayWeather(weatherData) {
-  iconElem.textContent = weatherIcons[weatherData.icon] || "❔";
+  iconElem.setAttribute("src", `/icons/${weatherData.icon}.png`);
+  iconElem.setAttribute("alt", `${weatherData.conditions} icon`);
   // Capitalize the address
   const capitalizedAddr = weatherData.address.charAt(0).toUpperCase() + weatherData.address.slice(1);
   addressElem.textContent = capitalizedAddr;
@@ -82,7 +70,8 @@ function displayError() {
   addressElem.textContent = "The address you entered is not valid!";
   // Empty weather data fields
   timeElem.textContent = "";
-  iconElem.textContent = "";
+  iconElem.removeAttribute("src");
+  iconElem.setAttribute("alt", "Weather icon");
   tempElem.textContent = "";
 
   conditionsElem.textContent = "-";
