@@ -4,8 +4,10 @@
   "description": "## 📖 Project Description A simple and responsive weather dashboard built with **HTML, CSS, and JavaScript** that fetches real-time weather data using the [Visual Crossing Weather API](https://www.visualcrossing.com/weather-api/).   It displays current temperature, conditions, humidity, feels-like temperature, wind speed, and updates in a clean, user-friendly interface.",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "git subtree push --prefix dist origin gh-pages"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
+    "build": "cp -r src dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "Ayman Marghani",
