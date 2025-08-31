@@ -9,11 +9,13 @@ const humidityElem = document.querySelector(".humidity");
 const windSpeedElem = document.querySelector(".wind_speed");
 const timeElem = document.querySelector(".time");
 
+// Input: location (city) String
+// Output: Weather data (JSON)
 async function getWeatherData(location) {
-  // unitGroup = US / metric
   const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/today?unitGroup=metric&key=5V22ZU37ED7EQAUDSSPDTRUJM`;
   try {
     const response = await fetch(url);
+    // if response is ok convert data to json
     if (response.status == 200) {
       const weatherData = await response.json();
       return weatherData;
@@ -22,7 +24,8 @@ async function getWeatherData(location) {
     console.error(error.message);
   }
 }
-
+// Input: location (city) String
+// Output: weather object (temperature, feels like temperature, weather condition, weather icon, humidity, wind speed, last updated time, location) 
 async function processData(location) {
   // filter the data you need only
   const weatherData = await getWeatherData(location);
@@ -41,7 +44,9 @@ async function processData(location) {
   };
   return currentWeather;
 }
-
+// Input: weather object (temperature, feels like temperature, weather condition, weather icon, humidity, wind speed, last updated time, location) 
+// This function updates the DOM elements on the webpage with the weather data received from the API
+// It formats and displays the weather information in a user-friendly way (capitalizes address, formats time to 12-hour format, rounds numbers, etc.)
 function displayWeather(weatherData) {
   iconElem.setAttribute("src", `/icons/${weatherData.icon}.png`);
   iconElem.setAttribute("alt", `${weatherData.conditions} icon`);
@@ -65,10 +70,11 @@ function displayWeather(weatherData) {
   feelsLikeElem.textContent = `${Math.round(weatherData.feelslike)}°C`;
   windSpeedElem.textContent = `${Math.round(weatherData.windspeed)} km/h`;
 }
-
+// This function handles error cases when the weather data cannot be retrieved (invalid location, API error, etc.)
+// It displays an error message to the user and clears/resets all weather data fields to prevent showing outdated information
 function displayError() {
   addressElem.textContent = "The address you entered is not valid!";
-  // Empty weather data fields
+  // Clear weather data fields
   timeElem.textContent = "";
   iconElem.removeAttribute("src");
   iconElem.setAttribute("alt", "Weather icon");
@@ -79,11 +85,12 @@ function displayError() {
   feelsLikeElem.textContent = "-";
   windSpeedElem.textContent = "-";
 }
-
+// location form submission event handler
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
   const location = locationInput.value;
   const weatherData = await processData(location);
+  // If the location is found display the data, otherwise display error
   if (weatherData) {
     displayWeather(weatherData);
   }
