@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <h1>Weather Dashboard</h1>
+
+  <form action="">
+    <input type="text" id="location" name="location" placeholder="Enter city name..." required />
+    <button type="submit">🔍</button>
+  </form>
+
+  <div class="weather-display">
+    <div class="address">Type a city name to view weather</div>
+    <div class="time"></div>
+
+    <div class="display-container">
+      <div class="icon-temp-container">
+        <img class="icon" alt="Weather icon"></img>
+        <div class="conditions"></div>
+      </div>
+
+      <div class="data-container">
+        <div class="subcontainer">
+          <div class="data-label">Temperature</div>
+          <div class="temp data-value">-</div>
+        </div>
+
+        <div class="subcontainer">
+          <div class="data-label">Feels Like</div>
+          <div class="feels_like data-value">-</div>
+        </div>
+
+        <div class="subcontainer">
+          <div class="data-label">Humidity</div>
+          <div class="humidity data-value">-</div>
+        </div>
+
+        <div class="subcontainer">
+          <div class="data-label">Wind Speed</div>
+          <div class="wind_speed data-value">-</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">Powered by <a href="https://www.visualcrossing.com/weather-api/">Visual Crossing API</a></div>
+</body>
+
+</html>
