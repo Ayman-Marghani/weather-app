@@ -1,13 +1,14 @@
 const form = document.querySelector("form");
 const locationInput = document.querySelector("input");
 const addressElem = document.querySelector(".address");
+const timeElem = document.querySelector(".time");
+const displayContainer = document.querySelector(".display-container");
 const iconElem = document.querySelector(".icon");
+const conditionsElem = document.querySelector(".conditions");
 const tempElem = document.querySelector(".temp");
 const feelsLikeElem = document.querySelector(".feels_like");
-const conditionsElem = document.querySelector(".conditions");
 const humidityElem = document.querySelector(".humidity");
 const windSpeedElem = document.querySelector(".wind_speed");
-const timeElem = document.querySelector(".time");
 
 // Input: location (city) String
 // Output: Weather data (JSON)
@@ -51,6 +52,8 @@ async function processData(location) {
 // This function updates the DOM elements on the webpage with the weather data received from the API
 // It formats and displays the weather information in a user-friendly way (capitalizes address, formats time to 12-hour format, rounds numbers, etc.)
 function displayWeather(weatherData) {
+  displayContainer.style.display = "grid";
+
   iconElem.setAttribute("src", `icons/${weatherData.icon}.png`);
   iconElem.setAttribute("alt", `${weatherData.conditions} icon`);
   // Capitalize the address
@@ -67,31 +70,34 @@ function displayWeather(weatherData) {
     hour12: true
   })}`;
 
-  tempElem.textContent = `${Math.round(weatherData.temp)}°C`;
   conditionsElem.textContent = weatherData.conditions;
+  tempElem.textContent = `${Math.round(weatherData.temp)}°C`;
   humidityElem.textContent = `${Math.round(weatherData.humidity)}%`;
   feelsLikeElem.textContent = `${Math.round(weatherData.feelslike)}°C`;
   windSpeedElem.textContent = `${Math.round(weatherData.windspeed)} km/h`;
 }
+// Helper function
+function clearWeatherData() {
+  displayContainer.style.display = "none";
+  timeElem.textContent = "";
+}
 // This function handles error cases when the weather data cannot be retrieved (invalid location, API error, etc.)
 // It displays an error message to the user and clears/resets all weather data fields to prevent showing outdated information
 function displayError() {
+  // Show Error msg
   addressElem.textContent = "The address you entered is not valid!";
-  // Clear weather data fields
-  timeElem.textContent = "";
-  iconElem.removeAttribute("src");
-  iconElem.setAttribute("alt", "Weather icon");
-  tempElem.textContent = "";
-
-  conditionsElem.textContent = "-";
-  humidityElem.textContent = "-";
-  feelsLikeElem.textContent = "-";
-  windSpeedElem.textContent = "-";
+  clearWeatherData();
+}
+// Display loading text and hide current weather data
+function displayLoading() {
+  addressElem.textContent = "loading...";
+  clearWeatherData();
 }
 // location form submission event handler
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
   const location = locationInput.value;
+  displayLoading();
   const weatherData = await processData(location);
   // If the location is found display the data, otherwise display error
   if (weatherData) {

@@ -157,11 +157,16 @@ form button {
   width: 9rem;
   height: auto;
   margin: 0 auto;
+  /* display: none; */
 }
 
-.temp {
-  font-size: 3.5rem;
-  font-weight: 600;
+.display-container {
+  display: none;
+}
+
+.conditions {
+  font-size: 2rem;
+  font-weight: 550;
 }
 
 .data-label {
