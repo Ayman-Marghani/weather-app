@@ -2,6 +2,7 @@
 
 ## 📖 Project Description
 A simple and responsive weather dashboard built with **HTML, CSS, and JavaScript** that fetches real-time weather data using the [Visual Crossing Weather API](https://www.visualcrossing.com/weather-api/).  
+
 It displays current temperature, conditions, humidity, feels-like temperature, wind speed, and updates in a clean, user-friendly interface.  
 
 🔗 **[Live Demo](https://ayman-marghani.github.io/weather-app/)**  
@@ -18,7 +19,6 @@ It displays current temperature, conditions, humidity, feels-like temperature, w
 - Loading state while fetching data  
 - Error handling for invalid or unavailable locations  
 - Responsive design for mobile and desktop  
-
 
 
 ## 🛠️ Learned Skills
