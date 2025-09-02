@@ -85,12 +85,12 @@ function clearWeatherData() {
 // It displays an error message to the user and clears/resets all weather data fields to prevent showing outdated information
 function displayError() {
   // Show Error msg
-  addressElem.textContent = "The address you entered is not valid!";
+  addressElem.textContent = "City not found. Please try again.";
   clearWeatherData();
 }
 // Display loading text and hide current weather data
 function displayLoading() {
-  addressElem.textContent = "loading...";
+  addressElem.textContent = "Loading...";
   clearWeatherData();
 }
 // location form submission event handler

@@ -10,14 +10,14 @@ It displays current temperature, conditions, humidity, feels-like temperature, w
 - Search by city name  
 - Displays:
   - Current temperature  
-  - Weather conditions  
+  - Weather conditions with icons  
   - Feels like temperature  
   - Humidity percentage  
   - Wind speed  
   - Last updated time  
-- Error handling for invalid locations  
+- Loading state while fetching data  
+- Error handling for invalid or unavailable locations  
 - Responsive design for mobile and desktop  
-- Custom UI styling with weather icons  
 
 
 
@@ -25,6 +25,7 @@ It displays current temperature, conditions, humidity, feels-like temperature, w
 - Using **fetch API** with `async/await`  
 - Handling API responses and errors with `try/catch`  
 - DOM manipulation and dynamic content rendering  
+- Managing **loading, success, and error states**  
 - Implementing **responsive design** with CSS Grid & Flexbox  
 - Working with third-party APIs  
 
@@ -60,12 +61,19 @@ weather-app/
 1. Clone this repository:
    ```bash
    git clone https://github.com/ayman-marghani/weather-app.git
-   cd weather-app
-   cd src
    ```
-2. Open index.html in your browser.
 
-3. Enter a city name and hit search to view the weather details.
+2. Install dependencies:
+    ```bash
+    npm install
+    ```
+
+3. Start the development server:
+    ```bash
+    npm run start
+    ```
+
+4. Enter a city name and hit search to view the weather details.
 
 ⚠️ Note: You will need a Visual Crossing API key to replace in script.js.
 
